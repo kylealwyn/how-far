@@ -1,0 +1,20 @@
+$rp-container-bg: #eeeeee;
+$rp-bar-bg: #2ecc71;
+$rp-height: 10px;
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: $rp-height;
+  background: $rp-container-bg;
+
+  .reading-progress-bar {
+    height: 100%;
+    background: $rp-bar-bg;
+    transform-origin: 0 0;
+    transform: scaleX(0);
+  }
+}
