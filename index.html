@@ -4,11 +4,11 @@
   <title></title>
 
   <link rel="stylesheet" type="text/css" href="howfar.css">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather|Montserrat' rel='stylesheet' type='text/css'>
-
+  <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://picturepan2.github.io/spectre/dist/spectre.css">
   <style type="text/css">
     body {
-      font-family: 'Merriweather', 'Helvetica Neue'
+      font-family: 'Lato', 'Helvetica Neue'
     }
     h1 {
       font-family: 'Montserrat', 'Helvetica Neue'
@@ -16,30 +16,62 @@
     article {
       padding: 2em;
     }
+    img {
+      margin: 2em 0;
+    }
   </style>
 </head>
 <body>
   <article>
     <h1>Fist Pumps &amp; Donald Trumps</h1>
     <div id="content"></div>
+    <div class="text-center">
+      <button id="add-more" class="btn btn-primary">Add Another Paragraph</button>
+    </div>
   </article>
 
 
   <script type="text/javascript" src="howfar.compiled.js"></script>
   <script type="text/javascript">
     var content = document.getElementById('content');
-    for (var i = 0; i < 14; i++) {
+
+    function insertParagraph() {
       var p = document.createElement('p');
       p.innerHTML  = 'Integrate ideate fund responsive pivot engaging user centered design human-centered design parallax physical computing. Pivot unicorn long shadow actionable insight engaging food-truck waterfall is so 2000 and late long shadow paradigm thinker-maker-doer intuitive responsive SpaceTeam waterfall is so 2000 and late. Unicorn integrate cortado iterate engaging personas piverate Steve Jobs driven.'
       content.appendChild(p);
     }
+
+    function insertImage() {
+      var img = document.createElement('img');
+      img.src = 'https://source.unsplash.com/category/nature';
+      img.classList.add('img-responsive');
+      content.appendChild(img);
+    }
+
+    for (var i = 0; i <= 15; i++) {
+      insertParagraph();
+      if (i%3 == 0) {
+        insertImage();
+      }
+    }
+
     var rt = new HowFar({
       onScroll: function (percentage) {
-        console.log(percentage);
+
       },
       onFinish: function () {
+        // TODO: pop open simple alert saying we're done!
+        console.log('Done!')
       }
     });
+
+    var addMore = document.getElementById('add-more');
+    addMore.addEventListener('click', function () {
+      insertParagraph();
+      rt.update();
+    });
+
+
   </script>
 </body>
 </html>
