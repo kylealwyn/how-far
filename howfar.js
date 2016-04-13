@@ -21,7 +21,7 @@ function throttle(fn, threshhold, scope) {
   };
 }
 
-class ReadingTime {
+class HowFar {
   constructor(opts={}) {
     this.opts = {};
     this.opts.parent = opts.parent || 'body';
