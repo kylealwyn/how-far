@@ -4,22 +4,22 @@ const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 
 gulp.task('sass', () => {
-  return gulp.src('readingtime.scss')
+  return gulp.src('howfar.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('.'));
 });
 
 gulp.task('js', () => {
-  return gulp.src('readingtime.js')
+  return gulp.src('howfar.js')
     .pipe(babel({
         presets: ['es2015']
     }))
-    .pipe(rename('readingtime.compiled.js'))
+    .pipe(rename('howfar.compiled.js'))
     .pipe(gulp.dest('.'))
 })
 
 gulp.task('default', ['js', 'sass']);
 gulp.task('serve', () => {
-  gulp.watch('readingtime.js', ['js']);
-  gulp.watch('readingtime.scss', ['sass']);
+  gulp.watch('howfar.js', ['js']);
+  gulp.watch('howfar.scss', ['sass']);
 })
