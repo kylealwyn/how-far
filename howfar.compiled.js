@@ -26,11 +26,11 @@ function throttle(fn, threshhold, scope) {
   };
 }
 
-var ReadingTime = function () {
-  function ReadingTime() {
+var HowFar = function () {
+  function HowFar() {
     var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-    _classCallCheck(this, ReadingTime);
+    _classCallCheck(this, HowFar);
 
     this.opts = {};
     this.opts.parent = opts.parent || 'body';
@@ -43,7 +43,7 @@ var ReadingTime = function () {
     this.insert();
   }
 
-  _createClass(ReadingTime, [{
+  _createClass(HowFar, [{
     key: 'insert',
     value: function insert() {
       var parent = document.querySelector(this.opts.parent);
@@ -100,5 +100,5 @@ var ReadingTime = function () {
     }
   }]);
 
-  return ReadingTime;
+  return HowFar;
 }();
