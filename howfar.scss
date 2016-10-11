@@ -1,6 +1,6 @@
-$rp-container-bg: #eeeeee;
-$rp-bar-bg: #2ecc71;
-$rp-height: 10px;
+$hf-container-bg: #eeeeee;
+$hf-bar-bg: #2ecc71;
+$hf-height: 7px;
 
 .reading-progress {
   position: fixed;
@@ -8,12 +8,12 @@ $rp-height: 10px;
   left: 0;
   display: block;
   width: 100%;
-  height: $rp-height;
-  background: $rp-container-bg;
+  height: $hf-height;
+  background: $hf-container-bg;
 
   .reading-progress-bar {
     height: 100%;
-    background: $rp-bar-bg;
+    background: $hf-bar-bg;
     transform-origin: 0 0;
     transform: scaleX(0);
   }

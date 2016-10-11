@@ -8,17 +8,21 @@
     <meta name="description" content="A library to determine how far a container has been scrolled">
     <link rel="stylesheet" type="text/css" href="howfar.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Merriweather|Montserrat' rel='stylesheet' type='text/css'>
-
     <style type="text/css">
       body {
-        font-family: 'Lato', 'Helvetica Neue'
+        font-family: 'Helvetica Neue'
       }
       h1 {
-        font-family: 'Montserrat', 'Helvetica Neue'
+        font-family: 'Helvetica Neue'
+      }
+      #content {
+
       }
       article {
-        padding: 2em;
+        display: block;
+        margin: 0 auto;
+        max-width: 768px;
+        padding: 1rem;
       }
       img {
         max-width: 100%;
@@ -62,20 +66,21 @@
         }
       }
 
-      var rt = new HowFar({
+      var hf = new HowFar({
         onScroll: function (percentage) {
 
         },
         onFinish: function () {
-          // TODO: pop open simple alert saying we're done!
-          console.log('Done!')
+          if (!this.finished) {
+            alert('All Done!');
+          }
         }
       });
 
       var addMore = document.getElementById('add-more');
       addMore.addEventListener('click', function () {
         insertParagraph();
-        rt.update();
+        hf.update();
       });
 
 

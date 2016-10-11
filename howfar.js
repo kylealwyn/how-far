@@ -29,7 +29,7 @@
       this.opts = {};
       this.opts.parent = opts.parent || 'body';
       this.opts.article = opts.article || 'article';
-      this.opts.throttle = opts.throttle || 0;
+      this.opts.throttleAmt = opts.throttleAmt || 0;
       this.opts.onScroll = opts.onScroll || noop;
       this.opts.onFinish = opts.onFinish || noop;
       this.opts.containerBackground = opts.containerBackground || '#eeeeee' ;
@@ -42,17 +42,17 @@
       let child = document.createElement('div');
       child.innerHTML = this.opts.template;
       if (this.opts.after) {
-        parent.appendChild(child);
+        parent.appendChild(child.firstChild);
       } else {
-        parent.insertBefore(child, parent.firstChild);
+        parent.insertBefore(child.firstChild, parent.firstChild);
       }
 
       this.listen();
     }
 
     listen() {
-      this.scrollListener = throttle(this.update.bind(this), this.opts.throttle);
-      this.resizeListener = throttle(this.update.bind(this), this.opts.throttle);
+      this.scrollListener = throttle(this.update.bind(this), this.opts.throttleAmt);
+      this.resizeListener = throttle(this.update.bind(this), this.opts.throttleAmt);
       window.addEventListener('scroll', this.scrollListener);
       window.addEventListener('resize', this.resizeListener);
     }
@@ -65,20 +65,19 @@
         this.bar = document.querySelector('.reading-progress');
       }
 
-      let articleBegin = this.article.offsetTop,
+      let articleTop = this.article.offsetTop,
           articleHeight = this.article.clientHeight,
           windowHeight = window.innerHeight,
-          scrollOffset = window.scrollY,
-          articleOffset = window.scrollY - articleBegin,
-          articleLeft = articleHeight - windowHeight,
-          percentage = (articleOffset/(articleHeight-windowHeight));
+          articleOffset = window.scrollY - articleTop,
+          percentageComplete = (articleOffset/(articleHeight-windowHeight));
 
-      this.bar.firstChild.style.transform = `scaleX(${percentage})`;
+      this.bar.firstChild.style.transform = `scaleX(${percentageComplete})`;
 
-      this.opts.onScroll.call(this, percentage);
+      this.opts.onScroll.call(this, percentageComplete);
 
-      if (percentage >= 1) {
+      if (percentageComplete >= 1) {
         this.opts.onFinish.call(this);
+        this.finished = true;
       }
     }
 
