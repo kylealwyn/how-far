@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
-    "url" : "https://github.com/alwynsays/how-far/issues",
+    "url" : "https://github.com/kylealwyn/how-far/issues",
     "email" : "kjalwyn@gmail.com"
   },
-  "repository" : "alwynsays/how-far",
+  "repository" : "kylealwyn/how-far",
   "author": "Kyle Alwyn",
   "license": "ISC",
   "devDependencies": {
