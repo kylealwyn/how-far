@@ -2,7 +2,7 @@
   "name": "how-far",
   "version": "0.1.0",
   "description": "A plugin to determine how far you've scrolled through a section of a website.",
-  "main": ["howfar.js", "howfar.css"],
+  "main": ["dist/howfar.js", "dist/howfar.css"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
