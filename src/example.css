@@ -1,0 +1,19 @@
+body {
+  font-family: 'Helvetica Neue'
+}
+h1 {
+  font-family: 'Helvetica Neue'
+}
+#content {
+
+}
+article {
+  display: block;
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 1rem;
+}
+img {
+  max-width: 100%;
+  margin: 2em 0;
+}
